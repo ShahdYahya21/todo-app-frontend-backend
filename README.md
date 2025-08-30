@@ -62,6 +62,7 @@ All tasks are persisted in a **database** through the backend services.
    ./mvnw spring-boot:run
   Backend will run on http://localhost:8080/ 
   
+  -----
   ### Frontend 
 1. Navigate to the frontend folder:
    ```bash
@@ -73,4 +74,41 @@ All tasks are persisted in a **database** through the backend services.
 3. Run the Angular app:
    ```bash
    ng serve
-Open your browser at http://localhost:4200/
+  Open your browser at http://localhost:4200/
+
+  
+---
+
+## Screenshots
+### 1. Add and View tasks
+<img src="https://github.com/user-attachments/assets/09039891-8687-4eab-bf7a-35efcce12511" width="720" />
+
+-----
+
+### 2. Mark tasks as complete
+<img src="https://github.com/user-attachments/assets/22543a54-d169-4e9c-b9a6-0ffd51a2cf25" width="720" />
+
+-----
+
+
+### 3. update a task title
+<img src="https://github.com/user-attachments/assets/a6d4d6e8-bfe3-4b5c-8719-0d6320cab104" width="720" />
+<img src="https://github.com/user-attachments/assets/60dd86c9-64e0-42d7-9741-6b5623c00fdc" width="720" />
+
+-----
+
+
+### 4. delete a task
+<img src="https://github.com/user-attachments/assets/068d316e-f771-4994-ab82-f33a2b8f0484" width="720" />
+<img src="https://github.com/user-attachments/assets/49a5f26a-d7db-43c0-9cf9-c2bcbf49be04" width="720" />
+
+-----
+
+
+### 5. search for a task
+<img src="https://github.com/user-attachments/assets/42f6ca43-09e3-4ef1-8452-a30c1097972f" width="720" />
+
+
+
+
+
