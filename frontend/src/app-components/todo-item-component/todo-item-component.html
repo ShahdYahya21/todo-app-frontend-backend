@@ -1,0 +1,63 @@
+@if(localTodoItem){
+<div class="todoItemContainer">
+   <div class="task" [ngStyle]="localTodoItem.completed ? constants.STYLES.COMPLETED_TASK : {}">
+      {{ localTodoItem.taskTitle }}</div>
+   <div class="completedContainer">
+      <input type="checkbox" class="completed" [checked]="localTodoItem.completed" (click)="completeMark()" />
+   </div>
+   <div class="updateContainer">
+      <button class="update" (click)="updateButtonPressed = true">{{ constants.BUTTON_LABELS.UPDATE }}</button>
+      @if(updateButtonPressed) {
+      <div class="overlay">
+         <div class="promptMessage">
+            <div>
+               <p class="updateMessage">{{ constants.MESSAGES.Update_MESSAGE }}</p>
+            </div>
+            <div>
+               <input class="updateInput" type="text" [formControl]="updatedTaskName"
+                  [placeholder]="constants.PLACEHOLDER.UPDATE_TASK_PLACEHOLDER" (input)="onInputChange()" />
+            </div>
+             @if(confirmationButtonPressed){
+            <div class="errorContainer">
+               @if((updatedTaskName.invalid && updatedTaskName.hasError('required'))|| trimmedUpdatedTask === ''){
+               <p class="error">{{ constants.MESSAGES.VALIDATION_MESSAGES.TASK_REQUIRED }}</p>
+               }
+               @else if((updatedTaskName.invalid && updatedTaskName.hasError('size')) || trimmedUpdatedTask.length < 3){
+               <p class="error">{{ constants.MESSAGES.VALIDATION_MESSAGES.TASK_SIZE_LIMIT }}</p>
+               }
+            
+            </div>
+         }
+            
+            
+
+            <div>
+               <button class="updateButton" (click)="updateTodo()">
+                  {{ constants.BUTTON_LABELS.UPDATE }}
+               </button>
+               <button class="cancelButton" (click)="resetText()">
+                  {{ constants.BUTTON_LABELS.CANCEL }}
+               </button>
+            </div>
+           
+         </div>
+      </div>
+      }
+
+   </div>
+   <div class="deleteContainer">
+      <button class="delete" (click)="markAsDeleted = true">{{ constants.BUTTON_LABELS.DELETE }}</button>
+      @if(markAsDeleted){
+      <div class="overlay">
+         <div class="promptMessage">
+            <p class="deleteMessage">{{ constants.MESSAGES.DELETE_CONFIRMATION }}</p>
+            <button class="deleteButton" (click)="deleteTodo()">{{
+               constants.BUTTON_LABELS.DELETE }}</button>
+            <button class="cancelButton" (click)="markAsDeleted = false">{{ constants.BUTTON_LABELS.CANCEL
+               }}</button>
+         </div>
+      </div>
+      }
+   </div>
+</div>
+}
